@@ -13,7 +13,6 @@
     - common-setup
     - geerlingguy.mysql 
     - bennojoy.openldap_server
-    - smola.java
     - wildfly
     - keycloak
     - keycloak_wf9_adapter

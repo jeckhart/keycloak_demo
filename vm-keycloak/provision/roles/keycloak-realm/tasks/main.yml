@@ -3,7 +3,7 @@
   register: keycloak_realm_check
 
 - name: copy realm file to tmp
-  template: src=hogwarts.j2 dest=/tmp/hogwarts.realm
+  template: src=serenity.j2 dest=/tmp/serenity.realm
   when: keycloak_realm_check.stat.exists == False
 
 - name: make sure keycloak is shutdown
@@ -11,7 +11,7 @@
   when: keycloak_realm_check.stat.exists == False
 
 - name: import realm
-  shell: "{{ app_base_dir }}/keycloak/bin/standalone.sh -Dkeycloak.import=/tmp/hogwarts.realm > /tmp/keycloak_realm_input.log"
+  shell: "{{ app_base_dir }}/keycloak/bin/standalone.sh -Dkeycloak.import=/tmp/serenity.realm > /tmp/keycloak_realm_input.log"
   become: yes
   become_user: keycloak
   async: 60

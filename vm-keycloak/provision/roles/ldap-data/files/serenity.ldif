@@ -1,0 +1,165 @@
+
+dn: ou=groups,dc=serenity,dc=org
+objectClass: organizationalunit
+ou: groups
+
+dn: cn=captain,ou=groups,dc=serenity,dc=org
+objectClass: groupOfNames
+objectClass: top
+ou: groups
+description: serenity captain
+member: uid=mreynolds,ou=people,dc=serenity,dc=org
+cn: captain
+
+dn: cn=crew,ou=groups,dc=serenity,dc=org
+objectClass: groupOfNames
+objectClass: top
+ou: groups
+description: serenity crew
+member: uid=zwashburne,ou=people,dc=serenity,dc=org
+member: uid=hwashburne,ou=people,dc=serenity,dc=org
+member: uid=iserra,ou=people,dc=serenity,dc=org
+member: uid=jcobb,ou=people,dc=serenity,dc=org
+member: uid=kfrye,ou=people,dc=serenity,dc=org
+member: uid=stam,ou=people,dc=serenity,dc=org
+cn: crew
+
+dn: cn=passengers,ou=groups,dc=serenity,dc=org
+objectClass: groupOfNames
+objectClass: top
+ou: groups
+description: passengers
+member: uid=rtam,ou=people,dc=serenity,dc=org
+member: uid=dbook,ou=people,dc=serenity,dc=org
+cn: passengers
+
+dn: ou=people,dc=serenity,dc=org
+objectClass: organizationalunit
+ou: people
+
+dn: uid=mreynolds,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: mreynolds
+userpassword: browncoat
+givenname: Malcolm
+cn: Malcolm Reynolds
+sn: Reynolds
+mail: mreynolds@serenity.org
+o: Browncoat
+ou: people
+
+dn: uid=zwashburne,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: zwashburne
+userpassword: browncoat
+givenname: Zoe
+cn: Zoe Washburne
+sn: Washburne
+mail: zwashburne@serenity.org
+o: Browncoat
+ou: people
+
+dn: uid=hwashburne,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: hwashburne
+userpassword: browncoat
+givenname: Hoban
+cn: Hoban Washburne
+sn: Washburne
+mail: hwashburne@serenity.org
+o: Pilot
+ou: people
+
+dn: uid=iserra,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: iserra
+userpassword: browncoat
+givenname: Inara
+cn: Inara Serra
+sn: Serra
+mail: iserra@serenity.org
+o: Companion
+ou: people
+
+dn: uid=jcobb,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: jcobb
+userpassword: browncoat
+givenname: Jayne
+cn: Jayne Cobb
+sn: Cobb
+mail: jcobb@serenity.org
+o: Mercenery
+ou: people
+
+dn: uid=kfrye,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: kfrye
+userpassword: browncoat
+givenname: Kaylee
+cn: Kaylee Frye
+sn: Frye
+mail: kfrye@serenity.org
+o: Mechanic
+ou: people
+
+dn: uid=stam,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: stam
+userpassword: browncoat
+givenname: Simon
+cn: Simon Tam
+sn: Tam
+mail: stam@serenity.org
+o: Doctor
+ou: people
+
+dn: uid=rtam,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: rtam
+userpassword: browncoat
+givenname: River
+cn: River Tam
+sn: Tam
+mail: rtam@serenity.org
+o: Assassin
+ou: people
+
+dn: uid=dbook,ou=people,dc=serenity,dc=org
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: top
+uid: dbook
+userpassword: browncoat
+givenname: Derrial
+cn: Derrial Book
+sn: Book
+mail: dbook@serenity.org
+o: Shepherd
+ou: people
+

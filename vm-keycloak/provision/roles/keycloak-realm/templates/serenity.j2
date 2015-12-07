@@ -1,5 +1,5 @@
 {
-    "realm": "hogwarts",
+    "realm": "serenity",
     "enabled": true,
     "accessTokenLifespan": 60,
     "accessCodeLifespan": 60,
@@ -13,13 +13,13 @@
     "requiredCredentials": [ "password" ],
     "clients": [
         {
-            "clientId": "spellbook-service",
+            "clientId": "serenity-service",
             "enabled": true,
             "bearerOnly" : true,
             "secret": "password"
         },
         {
-            "clientId" : "hogwarts-web",
+            "clientId" : "serenity-web",
             "enabled" : true,
             "secret" : "password",
             "redirectUris" : [ "http://{{ host_ip_address  }}:52810/*" ],
@@ -115,16 +115,16 @@
     ],
     "userFederationProviders" : [
         {
-            "displayName" : "hogwarts-openldap",
+            "displayName" : "serenity-openldap",
             "providerName" : "ldap",
             "priority" : 0,
             "fullSyncPeriod" : 0,
             "changedSyncPeriod" : 0,
             "config" : {
-              "bindDn" : "cn=Manager,dc=hogwarts,dc=com",
+              "bindDn" : "cn=Manager,dc=serenity,dc=org",
               "bindCredential" : "password",
               "userObjectClasses" : "inetOrgPerson, organizationalPerson",
-              "usersDn" : "ou=People,dc=hogwarts,dc=com",
+              "usersDn" : "ou=People,dc=serenity,dc=org",
               "vendor" : "other",
               "syncRegistrations" : "true",
               "userAccountControlsAfterPasswordUpdate" : "true",
@@ -143,10 +143,10 @@
     "userFederationMappers" : [
         {
             "name" : "role",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "role-ldap-mapper",
             "config" : {
-                "roles.dn" : "ou=Groups,dc=hogwarts,dc=com",
+                "roles.dn" : "ou=Groups,dc=serenity,dc=org",
                 "use.realm.roles.mapping" : "true",
                 "membership.ldap.attribute" : "member",
                 "role.object.classes" : "groupOfNames",
@@ -155,7 +155,7 @@
             }
         }, {
             "name" : "creation date",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "createTimestamp",
@@ -164,7 +164,7 @@
             }
         }, {
             "name" : "organization",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "organization",
@@ -173,7 +173,7 @@
             }
         }, {
             "name" : "username",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "username",
@@ -182,7 +182,7 @@
             }
         }, {
             "name" : "first name",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "firstName",
@@ -191,7 +191,7 @@
             }
         }, {
             "name" : "full name",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "full-name-ldap-mapper",
             "config" : {
               "ldap.full.name.attribute" : "cn",
@@ -199,7 +199,7 @@
             }
         }, {
             "name" : "modify date",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "modifyTimestamp",
@@ -208,7 +208,7 @@
             }
         }, {
             "name" : "email",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "email",
@@ -217,7 +217,7 @@
             }
         }, {
             "name" : "last name",
-            "federationProviderDisplayName" : "hogwarts-openldap",
+            "federationProviderDisplayName" : "serenity-openldap",
             "federationMapperType" : "user-attribute-ldap-mapper",
             "config" : {
               "user.model.attribute" : "lastName",

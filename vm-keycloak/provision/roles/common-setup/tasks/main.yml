@@ -1,3 +1,6 @@
+- name: install openjdk-8 repository
+  apt_repository: repo='ppa:openjdk-r/ppa'
+
 - name: install common applications
   apt: pkg={{ item }} state=installed
   with_items:
@@ -7,4 +10,5 @@
     - mc
     - ntpdate
     - multitail
+    - openjdk-8-jdk
 
