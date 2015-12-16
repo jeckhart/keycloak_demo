@@ -16,7 +16,7 @@
     - wildfly
     - keycloak
     - keycloak_wf9_adapter
-    - spellbook-db
+    - serenity-db
     - ldap-data
     - keycloak-realm
     - jdauphant.ssl-certs

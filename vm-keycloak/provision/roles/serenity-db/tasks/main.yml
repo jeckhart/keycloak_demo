@@ -1,0 +1,12 @@
+- name: copy serenity.sql to tmp
+  copy: src=serenity.sql dest=/tmp
+
+- name: create serenity database
+  mysql_db: name=serenity state=present
+  notify: import serenity tables
+
+- name: create default user (firefly)
+  mysql_user: name=firefly host={{ item }} password=bigdamnheroes append_privs=true priv=serenity.*:ALL state=present
+  with_items:
+    - localhost
+    - "%"

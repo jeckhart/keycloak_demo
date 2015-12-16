@@ -1,0 +1,56 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2015-12-16 13:00
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Charles Walker
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `serenity` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE IF NOT EXISTS `serenity`.`manifest` (
+  `id` INT(11) NOT NULL,
+  `owner` VARCHAR(255) NULL DEFAULT NULL,
+  `description` VARCHAR(255) NULL DEFAULT NULL,
+  `count` INT(11) NULL DEFAULT NULL,
+  `location` INT(11) NOT NULL,
+  `job` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `owner` (`owner` ASC),
+  INDEX `fk_location_id_idx` (`location` ASC),
+  INDEX `fk_job_id_idx` (`job` ASC),
+  CONSTRAINT `fk_location_id`
+    FOREIGN KEY (`location`)
+    REFERENCES `serenity`.`location` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_job_id`
+    FOREIGN KEY (`job`)
+    REFERENCES `serenity`.`job` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `serenity`.`location` (
+  `id` INT(11) NOT NULL,
+  `name` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `serenity`.`job` (
+  `id` INT(11) NOT NULL,
+  `name` VARCHAR(255) NULL DEFAULT NULL,
+  `description` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

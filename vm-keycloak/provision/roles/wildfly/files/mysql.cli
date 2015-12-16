@@ -1,12 +1,12 @@
 embed-server
-if (outcome == success) of /subsystem=datasources/data-source=SpellBookDS:read-resource
-    /subsystem=datasources/data-source=SpellBookDS:remove
+if (outcome == success) of /subsystem=datasources/data-source=serenityDS:read-resource
+    /subsystem=datasources/data-source=serenityDS:remove
 end-if
-/subsystem=datasources/data-source=SpellBookDS:add( \
-    jndi-name=java:jboss/datasources/SpellBookDS, \
+/subsystem=datasources/data-source=serenityDS:add( \
+    jndi-name=java:jboss/datasources/serenityDS, \
     driver-class=com.mysql.jdbc.Driver, \
     driver-name=mysql-connector-java-5.1.36.jar_com.mysql.jdbc.Driver_5_1, \
-    connection-url="jdbc:mysql://localhost:3306/Spellbook", \
-    user-name="merlin", password="magic", \
+    connection-url="jdbc:mysql://localhost:3306/serenity", \
+    user-name="firefly", password="bigdamnheroes", \
     use-java-context=true)
 stop-embedded-server
