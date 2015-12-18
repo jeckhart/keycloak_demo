@@ -22,4 +22,5 @@
 - name: create a link to wildfly
   file: src="{{ wildfly_install_dir }}" dest="{{ wildfly_base_dir }}/wildfly" state=link
 
-  
+- name: update wildfly modules
+  copy: src="modules/" dest="{{ wildfly_install_dir }}/modules/system/layers/base"

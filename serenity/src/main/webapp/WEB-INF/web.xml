@@ -5,7 +5,8 @@
       version="3.0">
 
 	<module-name>serenity</module-name>
-	
+
+<!--
     <security-constraint>
         <web-resource-collection>
             <url-pattern>/*</url-pattern>
@@ -32,4 +33,5 @@
     <security-role>
         <role-name>passengers</role-name>
     </security-role>
+-->
 </web-app>

@@ -1,0 +1,23 @@
+package org.serenity.persistence.service
+
+import javax.ejb.Stateless
+import javax.persistence.EntityManager
+import javax.persistence.PersistenceContext
+import org.serenity.persistence.pdo.Job
+
+@Stateless
+public class JobFacade extends AbstractFacade<Job> {
+
+    @PersistenceContext(unitName = 'serenityDSUnit')
+    private EntityManager em
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em
+    }
+
+    JobFacade() {
+        super(Job)
+    }
+    
+}
