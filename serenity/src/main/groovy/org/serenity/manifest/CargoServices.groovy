@@ -26,7 +26,7 @@ class CargoServices {
     @Produces(MediaType.APPLICATION_JSON)
     Response findAllCargo() {
 
-        return Response.ok(mapList(cargoFacade.findAll())).build()
+        return Response.ok(cargoFacade.findAll()).build()
     }
 
     @GET
@@ -36,7 +36,7 @@ class CargoServices {
         Response response
         try {
             Cargo cargo = cargoFacade.find(id)
-            response = Response.ok(map(cargo)).build()
+            response = Response.ok(cargo).build()
         } catch (PersistenceException ex) {
             response = Response.status(Response.Status.NOT_FOUND).build()
         }
@@ -45,34 +45,8 @@ class CargoServices {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    Response addCargo(CargoDTO cargoDTO) {
+    Response addCargo(Cargo cargo) {
         null
     }
 
-    private Cargo map(CargoDTO cargoDTO) {
-        Cargo cargo = new Cargo()
-        cargo.count = cargoDTO.count
-        cargo.description = cargoDTO.description
-        cargo.owner = cargoDTO.owner
-        cargo
-    }
-
-    private List<CargoDTO> mapList(List<Cargo> cargo) {
-        List<CargoDTO> dtos = []
-        cargo.each { Cargo c ->
-            dtos.add(map(c))
-        }
-
-        dtos
-    }
-
-    private CargoDTO map(Cargo cargo) {
-        CargoDTO dto = new CargoDTO()
-        dto.owner = cargo.owner
-        dto.description = cargo.description
-        dto.count = cargo.count
-        dto.job = cargo.job?.name
-        dto.location = cargo.location.name
-        dto
-    }
 }

@@ -2,19 +2,15 @@ package org.serenity.persistence.pdo
 
 import groovy.transform.Canonical
 import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
 
 import javax.persistence.Basic
-import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
-import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.NamedQueries
 import javax.persistence.NamedQuery
-import javax.persistence.OneToMany
 import javax.persistence.Table
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Size
@@ -29,8 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement
     @NamedQuery(name = 'Location.findByName', query = 'SELECT l FROM Location l WHERE l.name = :name')
 ])
 @Canonical
-@EqualsAndHashCode(excludes = ['id','cargo'])
-@ToString(excludes = ['cargo'])
+@EqualsAndHashCode(excludes = ['id'])
 class Location implements Serializable {
     private static final long serialVersionUID = 1L
 
@@ -45,7 +40,4 @@ class Location implements Serializable {
     @Column(name = 'name', length = 255)
     String name
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = 'location', fetch = FetchType.LAZY)
-    Set<Cargo> cargo
-	
 }
