@@ -31,12 +31,12 @@ class CargoServices {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path('{/id}')
+    @Path('/{id}')
     Response findCargoById(@PathParam('id') Integer id) {
         Response response
         try {
             Cargo cargo = cargoFacade.find(id)
-            response = Response.ok(cargo).build()
+            response = Response.ok(map(cargo)).build()
         } catch (PersistenceException ex) {
             response = Response.status(Response.Status.NOT_FOUND).build()
         }
@@ -68,11 +68,11 @@ class CargoServices {
 
     private CargoDTO map(Cargo cargo) {
         CargoDTO dto = new CargoDTO()
-        dto.owner = c.owner
-        dto.description = c.description
-        dto.count = c.count
-        dto.job = c.job?.name
-        dto.location = c.location.name
+        dto.owner = cargo.owner
+        dto.description = cargo.description
+        dto.count = cargo.count
+        dto.job = cargo.job?.name
+        dto.location = cargo.location.name
         dto
     }
 }
