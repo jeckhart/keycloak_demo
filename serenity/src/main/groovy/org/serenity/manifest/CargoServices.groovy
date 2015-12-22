@@ -46,7 +46,14 @@ class CargoServices {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     Response addCargo(Cargo cargo) {
-        null
+        Response response
+        try {
+            cargoFacade.create(cargo)
+            response = Response.created().build()
+        } catch (PersistenceException ex) {
+            response = Response.serverError().build()
+        }
+        response
     }
 
 }
