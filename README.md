@@ -22,15 +22,15 @@ When complete, I hope to show:
     * follow vm-keycloak README.md to setup vm
     * start vm
 * build war files `gradle clean build`
-    * creates `spellbook/build/libs/spellbook.war`
+    * creates `serenity/build/libs/serenity.war`
 * copy war files to vm for deployment
-    * `cp spellbook/build/libs/spellbook.war vm-keycloak/shared`
+    * `cp serenity/build/libs/serenity.war vm-keycloak/shared`
     * `cd vm-keycloak; vagrant ssh`
     * `sudo -u wildfly cp /shared/*.war /opt/jboss/wildfly/standalone/deployments`
     * `sudo service keycloak start`
     * `sudo service wildfly start`
-* start hogwarts application
-    * `cd hogwarts`
+* start cortex application
+    * `cd cortex`
     * `npm install`
     * `bower install`
     * `gulp serve`

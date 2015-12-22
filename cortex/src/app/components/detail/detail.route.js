@@ -2,20 +2,20 @@
     'use strict';
 
     angular
-        .module('hogwarts.detail')
+        .module('cortex.detail')
         .config(['$routeProvider',config]);
 
 
     /** @ngInject */
     function config($routeProvider) {
         $routeProvider
-            .when('/edit/:spellId', {
+            .when('/edit/:cargoId', {
                 templateUrl: 'app/components/detail/detail.html',
-                controller: 'EditSpellCtrl'
+                controller: 'EditCargoItemCtrl'
             })
             .when('/new', {
                 templateUrl: 'app/components/detail/detail.html',
-                controller: 'NewSpellCtrl'
+                controller: 'NewCargoItemCtrl'
             });
     }
 })();

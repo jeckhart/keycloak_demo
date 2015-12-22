@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Owner</th>
+            <th>Description</th>
+            <th>Count</th>
+            <th>Location</th>
+            <th>Job</th>
+            <th ng-show="isCrew()"><a href="#/new"><i class="fa fa-plus-circle"></i></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="cargoItem in cargo track by cargoItem.id | orderBy: 'cargoItem.location.id'">
+            <td>{{cargoItem.owner}}</td>
+            <td>{{cargoItem.description}}</td>
+            <td>{{cargoItem.count}}</td>
+            <td>{{cargoItem.location.name}}</td>
+            <td>{{cargoItem.job.name}}</td>
+            <td ng-show="isCrew()"><a href="#/edit/{{cargoItem.id}}"><i class="fa fa-pencil"></i></a></td>
+        </tr>
+    </tbody>
+</table>

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('hogwarts')
+        .module('cortex')
         .config(['$routeProvider', routeConfig]);
 
     function routeConfig($routeProvider) {

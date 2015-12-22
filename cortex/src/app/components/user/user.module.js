@@ -1,6 +1,6 @@
 (function() {
     'use strict';
 
-    angular.module('hogwarts.user', ['ngRoute']);
+    angular.module('cortex.user', ['ngRoute']);
 
 })();

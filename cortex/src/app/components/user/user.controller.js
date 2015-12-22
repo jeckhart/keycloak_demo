@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hogwarts.user')
+    .module('cortex.user')
 
     .controller('UserCtrl', [ '$rootScope','$scope', 'Auth', UserCtrl]);
 

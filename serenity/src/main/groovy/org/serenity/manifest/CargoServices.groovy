@@ -56,4 +56,18 @@ class CargoServices {
         response
     }
 
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path('/{id}')
+    Response updateCargo(@PathParam('id') Integer id,  Cargo cargo) {
+        Response response
+        try {
+            cargoFacade.edit(cargo)
+            response = Response.ok().build()
+        } catch (PersistenceException ex) {
+            response = Response.serverError().build()
+        }
+        response
+    }
+
 }

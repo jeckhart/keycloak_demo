@@ -16,6 +16,7 @@ objectClass: groupOfNames
 objectClass: top
 ou: groups
 description: serenity crew
+member: uid=mreynolds,ou=people,dc=serenity,dc=org
 member: uid=zwashburne,ou=people,dc=serenity,dc=org
 member: uid=hwashburne,ou=people,dc=serenity,dc=org
 member: uid=iserra,ou=people,dc=serenity,dc=org

@@ -2,58 +2,67 @@
     'use strict';
 
     angular
-        .module('hogwarts.detail')
+        .module('cortex.detail')
 
-        .controller('EditSpellCtrl', ['$scope', '$routeParams', 'SpellData', 'toastr', EditSpellCtrl])
-        .controller('NewSpellCtrl', ['$scope', 'Auth', NewSpellCtrl]);
+        .controller('EditCargoItemCtrl', ['$scope', '$routeParams', 'CargoData', 'LocationData', 'JobData', 'toastr', editCargoItemCtrl])
+        .controller('NewCargoItemCtrl', ['$scope', 'Auth', newCargoItemCtrl]);
 
     /** @ngInject */
-    function NewSpellCtrl($scope, Auth) {
+    function newCargoItemCtrl($scope, Auth) {
         $scope.keycloak =  Auth;
     }
 
     /** @ngInject */
-    function EditSpellCtrl($scope, $routeParams, SpellData, toastr) {
-        function getSpell() {
-          SpellData.spell($routeParams.spellId)
+    function editCargoItemCtrl($scope, $routeParams, CargoData, LocationData, JobData, toastr) {
+        function getCargoItem() {
+          CargoData.cargo($routeParams.cargoId)
             .then(function (result) {
-              $scope.spellMaster = result.data;
+              $scope.cargoItemMaster = result.data;
               $scope.reset();
             });
         }
 
-        function getSpellTypes() {
-          SpellData.spellTypes()
-            .then(function (result) {
-              $scope.spellTypes = result.data;
-            });        
+        function getLocations() {
+            LocationData.all()
+                .then(function (result) {
+                    $scope.locations = result.data;
+                });
+        }
+
+        function getJobs() {
+            JobData.all()
+                .then(function (result) {
+                    $scope.jobs = result.data;
+                });
         }
 
         $scope.alerts = [];
-        
+
         $scope.closeAlert = function(index) {
             $scope.alerts.splice(index, 1);
         };
-        
-
-        $scope.spellMaster = [];
-        $scope.spell = [];
-        getSpell();
 
 
-        $scope.spellTypes = [];
-        getSpellTypes();
+        $scope.cargoItemMaster = [];
+        $scope.cargoItem = [];
+        getCargoItem();
+
+        $scope.locations = [];
+        getLocations();
+
+        $scope.jobs = [];
+        getJobs();
 
         $scope.reset = function() {
-            $scope.spell = angular.copy($scope.spellMaster);
+            $scope.cargoItem = angular.copy($scope.cargoItemMaster);
         };
 
         $scope.save = function() {
-            SpellData.update($scope.spell).
+            CargoData.update($scope.cargoItem).
                 then(function() {
-                    toastr.success($scope.spell.name + ' successfully updated', 'Success');
+                    toastr.success($scope.cargoItem.description + ' successfully updated', 'Success');
             }, function() {
-                    toastr.error($scope.spell.name + ' update failed', 'Error' );
+                    toastr.error($scope.cargoItem.description + ' update failed', 'Error' );
             });
         };
     }

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('hogwarts')
+        .module('cortex')
         .config(['$httpProvider','toastrConfig', config]);
 
     /** @ngInject */

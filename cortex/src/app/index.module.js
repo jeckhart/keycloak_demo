@@ -2,16 +2,18 @@
     'use strict';
 
     angular
-        .module('hogwarts', [
-            'ngAnimate', 
-            //'ngSanitize', 
-            'ngRoute', 
+        .module('cortex', [
+            'ngAnimate',
+            'ngSanitize',
+            'ngRoute',
             'toastr',
             'ui.bootstrap',
-            'hogwarts.user',
-            'hogwarts.spells',
-            'hogwarts.detail',
-            'hogwarts.spellService'
+            'cortex.user',
+            'cortex.cargo',
+            'cortex.detail',
+            'cortex.cargoService',
+            'cortex.locationService',
+            'cortex.jobService'
         ]);
 
 })();

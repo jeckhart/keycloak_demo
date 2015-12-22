@@ -1,27 +1,28 @@
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout=5000>{{alert.msg}}</alert>
 <form novalidate name="detailForm">
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" ng-model="spell.name" required>
+        <label>Owner</label>
+        <input type="text" class="form-control" ng-model="cargoItem.owner" required>
     </div>
 
     <div class="form-group">
         <label>Description</label>
-        <textarea name="description" class="form-control" ng-model="spell.description" required></textarea>
+        <textarea name="description" class="form-control" ng-model="cargoItem.description" required></textarea>
     </div>
 
     <div class="form-group">
-        <label>Affinity</label>
-        <select class="form-control" ng-model="spell.spellAffinity" required>
-            <option>LIGHT</option>
-            <option>NEUTRAL</option>
-            <option>DARK</option>
-        </select>
+        <label>Count</label>
+        <input type="number" name="count" class="form-control" ng-model="cargoItem.count" required></input>
     </div>
 
     <div class="form-group">
-        <label>Type</label>
-        <select ng-model="spell.spellType" class="form-control" ng-options="spellType.spellTypeId for spellType in spellTypes track by spellType.spellTypeId" required></select>
+        <label>Location</label>
+        <select ng-model="cargoItem.location" class="form-control" ng-options="location.name for location in locations track by location.id" required></select>
+    </div>
+
+    <div class="form-group">
+        <label>Job</label>
+        <select ng-model="cargoItem.job" class="form-control" ng-options="job.name for job in jobs track by job.id" required></select>
     </div>
 
     <div class="form-group">

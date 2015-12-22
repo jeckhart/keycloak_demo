@@ -1,6 +1,6 @@
 (function() {
     'use strict';
 
-    angular.module('hogwarts.detail', ['ngRoute', 'hogwarts.spellService', 'ui.bootstrap']);
+    angular.module('cortex.detail', ['ngRoute', 'cortex.cargoService', 'cortex.locationService', 'cortex.jobService', 'ui.bootstrap']);
 
 })();

@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('hogwarts')
-    .directive('hogwartsNavbar', hogwartsNavbar);
+    .module('cortex')
+    .directive('cortexNavbar', cortexNavbar);
 
   /** @ngInject */
-  function hogwartsNavbar() {
+  function cortexNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',

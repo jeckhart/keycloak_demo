@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('hogwarts')
+        .module('cortex')
         .factory('authInterceptor', ['$q', 'Auth', authInterceptor])
         .factory('errorInterceptor', ['$rootScope', '$q', errorInterceptor]);
 

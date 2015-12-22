@@ -2,15 +2,15 @@
     'use strict';
 
     angular
-        .module('hogwarts.spells')
+        .module('cortex.cargo')
         .config(['$routeProvider',config]);
 
 
     /** @ngInject */
     function config($routeProvider) {
-        $routeProvider.when('/spells', {
-            templateUrl: 'app/components/spells/spells.html',
-            controller: 'SpellCtrl'
+        $routeProvider.when('/cargo', {
+            templateUrl: 'app/components/cargo/cargo.html',
+            controller: 'CargoCtrl'
         });
     }
 
