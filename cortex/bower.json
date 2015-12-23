@@ -12,6 +12,7 @@
     "angular": "~1.4.0",
     "fontawesome": "~4.4.0",
     "angular-toastr": "~1.4.1",
+    "angular-loading-bar": "~0.8.0",
     "keycloak": "1.4.0.Final"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
         "css/font-awesome.min.css",
         "fonts/*"
       ]
-    }    
+    }
   },
   "resolutions": {
     "angular": "~1.4.0"
