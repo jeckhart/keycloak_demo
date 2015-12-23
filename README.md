@@ -15,11 +15,11 @@ When complete, I hope to show:
     * access to keycloak access token and resources
 * Added nginx ssl reverse proxy
     * keycloak is accessed as https://172.16.0.100/auth
-    * spell services are accessed as https://172.16.0.100/spellbook
+    * serenity services are accessed as https://172.16.0.100/serenity
 
 ### Setup
 * startup vagrant vm
-    * follow vm-keycloak README.md to setup vm
+    * follow [vm-keycloak README.md] to setup vm
     * start vm
 * build war files `gradle clean build`
     * creates `serenity/build/libs/serenity.war`
@@ -43,3 +43,4 @@ When complete, I hope to show:
 
 ---
 [keycloak]:https://172.16.0.100/auth
+[vm-keycloak README.md]:vm-keycloak/README.md
