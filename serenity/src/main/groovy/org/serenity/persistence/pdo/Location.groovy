@@ -22,7 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement
 @XmlRootElement
 @NamedQueries([
     @NamedQuery(name = 'Location.findAll', query = 'SELECT l FROM Location l'),
-    @NamedQuery(name = 'Location.findByName', query = 'SELECT l FROM Location l WHERE l.name = :name')
+    @NamedQuery(name = 'Location.findByName', query = 'SELECT l FROM Location l WHERE l.name = :name'),
+    @NamedQuery(name = 'Location.findByAccess', query = 'SELECT l FROM Location l WHERE l.access = :access'),
+
 ])
 @Canonical
 @EqualsAndHashCode(excludes = ['id'])
@@ -39,5 +41,11 @@ class Location implements Serializable {
     @Size(max = 255)
     @Column(name = 'name', length = 255)
     String name
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(max = 7)
+    @Column(name = "access", nullable = false, length = 7)
+    private String access;
 
 }

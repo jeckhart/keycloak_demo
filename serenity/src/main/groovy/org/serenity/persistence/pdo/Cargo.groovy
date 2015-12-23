@@ -23,7 +23,9 @@ import javax.xml.bind.annotation.XmlRootElement
 @XmlRootElement
 @NamedQueries([
     @NamedQuery(name = 'Cargo.findAll', query = 'SELECT c FROM Cargo c'),
-    @NamedQuery(name = 'Cargo.findByOwner', query = 'SELECT c FROM Cargo c WHERE c.owner = :owner')
+    @NamedQuery(name = 'Cargo.findByOwner', query = 'SELECT c FROM Cargo c WHERE c.owner = :owner'),
+    @NamedQuery(name = 'Cargo.findByAccess', query = 'SELECT c FROM Cargo c WHERE c.location.access = :access'),
+    @NamedQuery(name = 'Cargo.findByAccessAndId', query = 'SELECT c FROM Cargo c WHERE c.id = :id AND c.location.access = :access')
 ])
 @Canonical
 @EqualsAndHashCode(excludes = ['id'])

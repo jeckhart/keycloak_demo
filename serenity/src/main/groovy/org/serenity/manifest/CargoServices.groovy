@@ -1,8 +1,10 @@
 package org.serenity.manifest
 
+import org.serenity.manifest.ejb.CargoAccess
 import org.serenity.persistence.pdo.Cargo
 import org.serenity.persistence.service.CargoFacade
 
+import javax.ejb.LocalBean
 import javax.ejb.Stateless
 import javax.inject.Inject
 import javax.persistence.PersistenceException
@@ -16,17 +18,18 @@ import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
 @Stateless
+@LocalBean
 @Path('cargo')
 class CargoServices {
 
     @Inject
-    CargoFacade cargoFacade
+    CargoAccess cargoAccess
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     Response findAllCargo() {
 
-        return Response.ok(cargoFacade.findAll()).build()
+        return Response.ok(cargoAccess.findAccessibleCargo()).build()
     }
 
     @GET
@@ -35,7 +38,7 @@ class CargoServices {
     Response findCargoById(@PathParam('id') Integer id) {
         Response response
         try {
-            Cargo cargo = cargoFacade.find(id)
+            Cargo cargo = cargoAccess.findAccessibleCargoById(id)
             response = Response.ok(cargo).build()
         } catch (PersistenceException ex) {
             response = Response.status(Response.Status.NOT_FOUND).build()
@@ -48,9 +51,9 @@ class CargoServices {
     Response addCargo(Cargo cargo) {
         Response response
         try {
-            cargoFacade.create(cargo)
+            cargoAccess.addCargo(cargo)
             response = Response.created().build()
-        } catch (PersistenceException ex) {
+        } catch (Exception ex) {
             response = Response.serverError().build()
         }
         response
@@ -62,9 +65,9 @@ class CargoServices {
     Response updateCargo(@PathParam('id') Integer id,  Cargo cargo) {
         Response response
         try {
-            cargoFacade.edit(cargo)
+            cargoAccess.updateCargo(cargo)
             response = Response.ok().build()
-        } catch (PersistenceException ex) {
+        } catch (Exception ex) {
             response = Response.serverError().build()
         }
         response

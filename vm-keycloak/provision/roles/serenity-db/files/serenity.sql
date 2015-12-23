@@ -32,7 +32,7 @@ CREATE TABLE `cargo` (
   `location` int(11) NOT NULL,
   `job` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `owner` (`owner`),
+  KEY `owner_idx` (`owner`),
   KEY `fk_location_id_idx` (`location`),
   KEY `fk_job_id_idx` (`job`),
   CONSTRAINT `fk_location_id` FOREIGN KEY (`location`) REFERENCES `location` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -92,7 +92,9 @@ DROP TABLE IF EXISTS `location`;
 CREATE TABLE `location` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `access` ENUM('PUBLIC', 'PRIVATE') NOT NULL DEFAULT 'PUBLIC',
+  PRIMARY KEY (`id`),
+  KEY `access_idx` (`access`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -103,12 +105,12 @@ CREATE TABLE `location` (
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
 INSERT INTO `location` VALUES
-  (1,'galley'),
-  (2,'hold'),
-  (3,'brig'),
-  (4,'buried'),
-  (5,'armory'),
-  (6,'infirmary');
+  (1,'galley','PUBLIC'),
+  (2,'hold','PUBLIC'),
+  (3,'brig','PUBLIC'),
+  (4,'buried','PRIVATE'),
+  (5,'armory','PUBLIC'),
+  (6,'infirmary','PUBLIC');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -1,7 +1,9 @@
 package org.serenity.manifest
 
+import org.serenity.manifest.ejb.CargoAccess
 import org.serenity.persistence.service.JobFacade
 
+import javax.ejb.LocalBean
 import javax.ejb.Stateless
 import javax.inject.Inject
 import javax.ws.rs.GET
@@ -11,15 +13,16 @@ import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
 @Stateless
+@LocalBean
 @Path('jobs')
 class JobServices {
 
     @Inject
-    JobFacade jobFacade
+    CargoAccess cargoAccess
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     Response findAll() {
-        return Response.ok(jobFacade.findAll()).build()
+        return Response.ok(cargoAccess.findJobs()).build()
     }
 }
