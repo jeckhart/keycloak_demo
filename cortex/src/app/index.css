@@ -16,3 +16,11 @@
 .toast-happy {
     background-color: green;
 }
+
+body {
+    padding-bottom: 70px;
+}
+
+.navbar-custom {
+    background-color:#FFFFFF;
+}
