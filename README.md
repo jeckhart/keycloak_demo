@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/SUMGlobal/keycloak_demo.svg?branch=master)](https://travis-ci.org/SUMGlobal/keycloak_demo)
 # Keycloak/Wildfly/Angular Example
 When complete, I hope to show:
 * working keycloak server
