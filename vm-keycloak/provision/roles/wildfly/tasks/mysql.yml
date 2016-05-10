@@ -9,9 +9,9 @@
   become_user: "{{ wildfly_owner }}"
 
 - name: copy mysql cli to tmp
-  copy: src=mysql.cli dest=/tmp owner="{{ owner }}" group="{{ group }}"
+  copy: src=mysql.cli dest=/tmp owner="{{ wildfly_owner }}" group="{{ wildfly_group }}"
 
 - name: install mysql driver into standalone.xml through cli
-  command: "{{ install_dir }}/bin/jboss-cli.sh --file=/tmp/mysql.cli"
+  command: "{{ wildfly_install_dir }}/bin/jboss-cli.sh --file=/tmp/mysql.cli"
   become: yes
   become_user: "{{ wildfly_owner }}"

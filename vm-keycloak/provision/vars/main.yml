@@ -38,3 +38,37 @@ nginx_sites:
           proxy_set_header      X-Forwarded-For $proxy_add_x_forwarded_for;
           proxy_set_header      X-Forwarded-Proto $scheme;
          }
+
+
+# Wildfly vars
+wildfly_group: "jboss"
+wildfly_owner: "wildfly"
+
+wildfly_version: "10.0.0.Final"
+wildfly_name: "wildfly-{{ wildfly_version }}"
+wildfly_archive: "{{ wildfly_name }}.zip"
+wildfly_url: "http://download.jboss.org/wildfly/{{ wildfly_version }}/{{ wildfly_archive }}"
+wildfly_base_dir: "{{ app_base_dir }}"
+wildfly_install_dir: "{{ wildfly_base_dir }}/{{ wildfly_name }}"
+
+wildfly_port_offset: 1000
+
+
+# Keycloak vars
+keycloak_group: "jboss"
+keycloak_owner: "keycloak"
+
+keycloak_version: "1.9.4.Final"
+keycloak_name: "keycloak-{{ keycloak_version }}"
+keycloak_archive: "{{ keycloak_name }}.zip"
+keycloak_url: "http://downloads.jboss.org/keycloak/{{ keycloak_version }}/{{ keycloak_archive }}"
+keycloak_base_dir: "{{ app_base_dir }}"
+keycloak_install_dir: "{{ keycloak_base_dir }}/{{ keycloak_name }}"
+
+keycloak_port_offset: 0
+
+# Keycloak Adapter vars
+keycloak_adapter_name: "keycloak-wildfly-adapter-dist-{{ keycloak_version }}"
+keycloak_adapter_archive: "{{ keycloak_adapter_name }}.zip"
+keycloak_adapter_url: "http://downloads.jboss.org/keycloak/{{ keycloak_version }}/adapters/keycloak-oidc/{{ keycloak_adapter_archive }}"
+

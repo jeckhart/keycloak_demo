@@ -22,6 +22,12 @@
   wait_for: path="/tmp/keycloak_realm_input.log" search_regex="WFLYSRV0025:"
   when: keycloak_realm_check.stat.exists == False
 
+- name: create admin user
+  shell: "{{ app_base_dir }}/keycloak/bin/add-user-keycloak.sh -r master -u admin -p admin > /tmp/keycloak_user_creation.log"
+  become: yes
+  become_user: keycloak
+  when: keycloak_realm_check.stat.exists == False
+
 - name: shutdown keycloak realm import
   command: "{{ app_base_dir }}/keycloak/bin/jboss-cli.sh --connect -c shutdown"
   become: yes
