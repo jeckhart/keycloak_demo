@@ -6,7 +6,7 @@
 * Install [VirtualBox]
 * Install Ansible: http://docs.ansible.com/intro_installation.html
 * install ansible-galaxy roles
- * bennojoy.openldap_server - `ansible=galaxy install bennojoy.openldap_server`
+ * bennojoy.openldap_server - `ansible-galaxy install bennojoy.openldap_server`
  * geerlingguy.mysql - `ansible-galaxy install geerlingguy.mysql`
  * jdauphant.ssl-certs - `ansible-galaxy install jdauphant.ssl-certs`
  * jdauphant.nginx - `ansible-galaxy install jdauphant.nginx`
