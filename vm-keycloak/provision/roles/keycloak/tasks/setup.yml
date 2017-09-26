@@ -1,20 +1,20 @@
 - name: update JBOSS_HOME for keycloak
-  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf" 
+  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf"
               regexp=^JBOSS_HOME
               line="JBOSS_HOME=\"{{ keycloak_base_dir }}/{{ keycloak_name }}\""
 
 - name: update JBOSS_USER for keycloak
-  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf" 
+  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf"
               regexp=^JBOSS_USER
               line="JBOSS_USER={{ keycloak_owner }}"
 
 - name: update JBOSS_OPTS for keycloak
-  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf" 
+  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly.conf"
               regexp=^JBOSS_OPTS
               line="JBOSS_OPTS=\"-Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0 -Djboss.socket.binding.port-offset={{ keycloak_port_offset }}\""
 
 - name: update NAME for wildfly-init-debian startup
-  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly-init-debian.sh" 
+  lineinfile: dest="{{ keycloak_install_dir }}/docs/contrib/scripts/init.d/wildfly-init-debian.sh"
               regexp=^NAME=wildfly
               line="NAME=keycloak"
 
@@ -31,7 +31,9 @@
   copy: src=installKeycloakSSL.cli dest=/tmp owner="{{ keycloak_owner }}" group="{{ keycloak_group }}"
 
 - name: install keycloak ssl through admin server cli
-  command: "sudo -u {{ keycloak_owner }} {{ keycloak_install_dir }}/bin/jboss-cli.sh --file=/tmp/installKeycloakSSL.cli"
+  command: "{{ keycloak_install_dir }}/bin/jboss-cli.sh --file=/tmp/installKeycloakSSL.cli"
+  become: yes
+  become_user: "{{ keycloak_owner }}"
 
 - name: add serenity theme
   copy: src="serenity" dest="{{ keycloak_install_dir }}/standalone/configuration/themes" owner="{{ keycloak_owner }}" group="{{ keycloak_group }}"

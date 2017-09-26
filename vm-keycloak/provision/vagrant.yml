@@ -3,7 +3,7 @@
   vars_files:
     - vars/main.yml
 
-  sudo: yes
+  become: true
 
   pre_tasks:
   - name: create install check directory

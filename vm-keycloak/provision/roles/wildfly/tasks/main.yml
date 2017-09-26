@@ -1,5 +1,4 @@
 
-- include: install.yml
-- include: setup.yml
-- include: mysql.yml
-
+- import_tasks: install.yml
+- import_tasks: setup.yml
+- import_tasks: mysql.yml
