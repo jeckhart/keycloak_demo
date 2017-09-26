@@ -12,6 +12,8 @@
 
 - name: import realm
   shell: "{{ app_base_dir }}/keycloak/bin/standalone.sh -Dkeycloak.import=/tmp/serenity.realm > /tmp/keycloak_realm_input.log"
+  args:
+    executable: /bin/sh
   become: yes
   become_user: keycloak
   async: 60
@@ -24,6 +26,8 @@
 
 - name: create admin user
   shell: "{{ app_base_dir }}/keycloak/bin/add-user-keycloak.sh -r master -u admin -p admin > /tmp/keycloak_user_creation.log"
+  args:
+    executable: /bin/sh
   become: yes
   become_user: keycloak
   when: keycloak_realm_check.stat.exists == False
