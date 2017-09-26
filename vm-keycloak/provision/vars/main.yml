@@ -10,7 +10,7 @@ openldap_bind_dn: "cn=Manager,dc=serenity,dc=org"
 app_base_dir: /opt/jboss
 check_dir: /etc/ansible/install
 
-nginx_configs: 
+nginx_configs:
   ssl:
        - ssl_certificate_key {{ssl_certs_privkey_path}}
        - ssl_certificate     {{ssl_certs_cert_path}}
@@ -58,7 +58,7 @@ wildfly_port_offset: 1000
 keycloak_group: "jboss"
 keycloak_owner: "keycloak"
 
-keycloak_version: "1.9.4.Final"
+keycloak_version: "3.2.1.Final"
 keycloak_name: "keycloak-{{ keycloak_version }}"
 keycloak_archive: "{{ keycloak_name }}.zip"
 keycloak_url: "http://downloads.jboss.org/keycloak/{{ keycloak_version }}/{{ keycloak_archive }}"
@@ -71,4 +71,3 @@ keycloak_port_offset: 0
 keycloak_adapter_name: "keycloak-wildfly-adapter-dist-{{ keycloak_version }}"
 keycloak_adapter_archive: "{{ keycloak_adapter_name }}.zip"
 keycloak_adapter_url: "http://downloads.jboss.org/keycloak/{{ keycloak_version }}/adapters/keycloak-oidc/{{ keycloak_adapter_archive }}"
-
