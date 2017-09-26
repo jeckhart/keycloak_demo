@@ -1,0 +1,13 @@
+# Use our updates to openldap_server
+- src: https://github.com/jeckhart/openldap_server
+  name: bennojoy.openldap_server
+
+# Mysql modules
+- src: geerlingguy.mysql
+
+# ssl certs
+- src: jdauphant.ssl-certs
+
+# nginx
+- src: jdauphant.nginx
+
