@@ -31,11 +31,10 @@ import javax.xml.bind.annotation.XmlRootElement
 @EqualsAndHashCode(excludes = ['id'])
 class Cargo implements Serializable {
     private static final long serialVersionUID = 1L
-	
+
     @Id
     @Basic(optional = false)
-    @NotNull
-    @Column(name = 'id', nullable = false)
+    @Column(name = 'id', nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id
 

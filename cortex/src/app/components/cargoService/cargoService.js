@@ -27,6 +27,10 @@
             return $http.get(getUrl()+ '/' + cargoId);
         };
 
+        service.create = function(cargo) {
+            return $http.post(getUrl() + '/', cargo);
+        };
+
         service.update = function(cargo) {
             return $http.post(getUrl() + '/' + cargo.id, cargo);
         };
