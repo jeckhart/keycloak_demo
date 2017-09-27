@@ -43,5 +43,5 @@ When complete, I hope to show:
  * NOTE: you will need to set another admin password
 
 ---
-[keycloak]:https://172.16.0.100/auth
+[keycloak]:https://172.16.0.100:9080/auth
 [vm-keycloak README.md]:vm-keycloak/README.md
