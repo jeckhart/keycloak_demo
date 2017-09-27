@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="cargoItem in cargo track by cargoItem.id | orderBy: 'cargoItem.location.id'">
+        <tr ng-repeat="cargoItem in cargo | orderBy: 'location.id' track by cargoItem.id ">
             <td>{{cargoItem.owner}}</td>
             <td>{{cargoItem.description}}</td>
             <td>{{cargoItem.count}}</td>
